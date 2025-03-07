@@ -13,17 +13,19 @@ const StackLayout = () => {
 
   useEffect(() => {
     const inAuthGroup = segments[0] === "(protected)";
-    console.log(authState?.username === null && inAuthGroup);
+
     if (authState === null) {
       router.replace("/");
     } else if (authState) {
-      router.replace("/(protected)/home");
+      router.replace("/(protected)/profile");
     }
   }, [authState]);
 
   return (
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="chat" />
+      <Stack.Screen name="settings" />
       <Stack.Screen name="(protected)" options={{ headerShown: false }} />
     </Stack>
   );

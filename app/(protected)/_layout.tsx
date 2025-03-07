@@ -1,8 +1,9 @@
-import { Tabs, useRouter } from "expo-router";
+import { Tabs } from "expo-router";
 import React from "react";
 import { Platform } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
-export default function TabLayout() {
+const TabLayout = () => {
   return (
     <Tabs
       screenOptions={{
@@ -16,17 +17,31 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="home"
-        options={{
-          title: "Home",
-        }}
-      />
-      <Tabs.Screen
         name="explore"
         options={{
-          title: "Explore",
+          title: "Keşfet",
+          headerShown: true,
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="travel-explore" size={24} color={color} />
+          ),
+
+          tabBarLabel: "",
+        }}
+      />
+
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profil",
+          headerShown: true,
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="personal-injury" size={24} color={color} />
+          ),
+          tabBarLabel: "",
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default TabLayout;
